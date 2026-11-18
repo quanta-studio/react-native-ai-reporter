@@ -1,0 +1,13 @@
+{
+  "extends": "@react-native/typescript-config",
+  "compilerOptions": {
+    "strict": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "types": ["jest", "node"],
+    "noImplicitAny": true,
+    "skipLibCheck": true
+  },
+  "include": ["src", "metro.d.ts", "jest.setup.ts"],
+  "exclude": ["node_modules", "lib", "example", ".worktrees", ".bundle-check"]
+}

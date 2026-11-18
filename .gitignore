@@ -3,3 +3,12 @@ lib/
 .worktrees/
 .bundle-check/
 .DS_Store
+
+# example app native build output
+example/android/build/
+example/android/app/build/
+example/android/.gradle/
+example/ios/build/
+example/ios/Pods/
+example/.bundle/
+*.xcworkspace/xcuserdata/

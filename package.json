@@ -1,7 +1,88 @@
 {
   "name": "@quanta-studio/react-native-ai-reporter",
-  "version": "0.0.0",
-  "private": true,
+  "version": "0.1.0",
   "description": "In-app network inspector and bug reporter for React Native, with an on-device AI helper",
-  "license": "MIT"
+  "license": "MIT",
+  "main": "./lib/module/index.js",
+  "types": "./lib/typescript/src/index.d.ts",
+  "exports": {
+    ".": {
+      "source": "./src/index.ts",
+      "types": "./lib/typescript/src/index.d.ts",
+      "default": "./lib/module/index.js"
+    },
+    "./noop": {
+      "source": "./src/noop/index.ts",
+      "types": "./lib/typescript/src/noop/index.d.ts",
+      "default": "./lib/module/noop/index.js"
+    },
+    "./metro": {
+      "types": "./metro.d.ts",
+      "default": "./metro.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "src",
+    "metro.js",
+    "metro.d.ts",
+    "!**/__tests__"
+  ],
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "workspaces": [
+    "example"
+  ],
+  "scripts": {
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "jest",
+    "build": "bob build",
+    "check:bundle": "node scripts/check-bundle.mjs",
+    "format": "prettier --write ."
+  },
+  "peerDependencies": {
+    "react": ">=18.2.0",
+    "react-native": ">=0.79"
+  },
+  "devDependencies": {
+    "@react-native/babel-preset": "0.84.0",
+    "@react-native/eslint-config": "0.84.0",
+    "@react-native/typescript-config": "0.84.0",
+    "@testing-library/react-native": "^13.3.3",
+    "@types/jest": "^29.5.14",
+    "@types/react": "^19.2.0",
+    "eslint": "^8.57.1",
+    "jest": "^29.7.0",
+    "prettier": "2.8.8",
+    "react": "19.2.3",
+    "react-native": "0.84.0",
+    "react-native-builder-bob": "^0.40.13",
+    "react-test-renderer": "19.2.3",
+    "typescript": "^5.8.3",
+    "whatwg-fetch": "^3.6.20"
+  },
+  "react-native-builder-bob": {
+    "source": "src",
+    "output": "lib",
+    "exclude": "**/__tests__/**",
+    "targets": [
+      [
+        "module",
+        {
+          "esm": true
+        }
+      ],
+      [
+        "typescript",
+        {
+          "project": "tsconfig.build.json"
+        }
+      ]
+    ]
+  }
 }
