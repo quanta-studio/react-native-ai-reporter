@@ -8,7 +8,6 @@
     "start": "react-native start"
   },
   "dependencies": {
-    "@quanta-studio/react-native-ai-reporter": "*",
     "react": "19.2.3",
     "react-native": "0.84.0"
   },
