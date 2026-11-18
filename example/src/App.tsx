@@ -62,11 +62,12 @@ export default function App() {
             onPress={() => console.error('Example error', {code: 42})}
           />
           <Button
-            title="Throw an error"
+            title="Report a non-fatal error"
             onPress={() => {
-              setTimeout(() => {
-                throw new Error('Example uncaught error');
-              }, 0);
+              // Goes through the global handler as non-fatal, so the app
+              // keeps running and the entry shows in the Logs tab.
+              const handler = ErrorUtils.getGlobalHandler();
+              handler(new Error('Example non-fatal error'), false);
             }}
           />
         </ScrollView>

@@ -66,6 +66,22 @@ Passed to `installAiReporter(options)` or `<AiReporterProvider options>`.
 Provider props: `launcher` (`hidden`, `insets`, `initialTop`) and
 `getCurrentRoute`.
 
+### Safe-area insets
+
+The library has no safe-area dependency, so the launcher can't know the
+device's real insets. Its defaults are a guess (iOS top 59 and bottom 34,
+Android top from `StatusBar.currentHeight`). Pass the real values through
+`launcher.insets`, for example from `react-native-safe-area-context`:
+
+```tsx
+const insets = useSafeAreaInsets();
+
+<AiReporterProvider launcher={{insets}}>{children}</AiReporterProvider>;
+```
+
+Call `useSafeAreaInsets` from a component inside the app's
+`SafeAreaProvider`.
+
 ## Redaction defaults
 
 Masked as `[redacted]` before anything is stored:
