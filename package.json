@@ -1,0 +1,7 @@
+{
+  "name": "@quanta-studio/react-native-ai-reporter",
+  "version": "0.0.0",
+  "private": true,
+  "description": "In-app network inspector and bug reporter for React Native, with an on-device AI helper",
+  "license": "MIT"
+}
