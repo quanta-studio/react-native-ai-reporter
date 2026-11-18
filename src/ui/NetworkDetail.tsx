@@ -40,7 +40,7 @@ export function NetworkDetail({
   return (
     <View style={styles.flex} testID="ai-reporter-detail">
       <View style={styles.bar}>
-        <Button id="back" label="Back" onPress={onBack} />
+        <Button id="detail-back" label="Back" onPress={onBack} />
         <Button
           id="share"
           label="Share"

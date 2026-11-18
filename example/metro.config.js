@@ -9,11 +9,25 @@ const root = path.resolve(__dirname, '..');
  * Metro sees one copy once the root is watched. The library is read from
  * `../src` through the "source" export condition, so no build step is needed.
  */
+const PKG = '@quanta-studio/react-native-ai-reporter';
+// The repo root is the package itself, so npm does not link it into
+// node_modules. Map its two entries to the sources by hand.
+const ENTRIES = {
+  [PKG]: path.join(root, 'src/index.ts'),
+  [`${PKG}/noop`]: path.join(root, 'src/noop/index.ts'),
+};
+
 const config = mergeConfig(getDefaultConfig(__dirname), {
   watchFolders: [root],
   resolver: {
-    unstable_conditionNames: ['source', 'require', 'import'],
     nodeModulesPaths: [path.join(root, 'node_modules')],
+    resolveRequest(context, moduleName, platform) {
+      const file = ENTRIES[moduleName];
+      if (file) {
+        return {type: 'sourceFile', filePath: file};
+      }
+      return context.resolveRequest(context, moduleName, platform);
+    },
   },
 });
 

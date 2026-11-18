@@ -26,7 +26,6 @@ export type {
  * same exports as the real entry and does nothing. It must not import
  * anything from `../core` or `../ui`.
  */
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function installAiReporter(_options?: AiReporterOptions): void {}
 
 export function uninstallAiReporter(): void {}

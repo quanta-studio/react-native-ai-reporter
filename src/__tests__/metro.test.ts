@@ -93,7 +93,7 @@ describe('T11 withAiReporter', () => {
 
   it('wraps context.resolveRequest when there is no resolver', () => {
     const base = jest.fn((_c: unknown, n: string) => ({resolved: n}));
-    const wrapped = withAiReporter({projectRoot: '/app'}, {enabled: false}) as {
+    const wrapped = withAiReporter({projectRoot: '/app'}, {enabled: false}) as unknown as {
       resolver: {resolveRequest: Resolve};
     };
     expect(

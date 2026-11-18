@@ -1,7 +1,7 @@
 import {isFailure} from '../core/network/failure';
 import {store} from '../core/runtime';
 
-interface UiState {
+export interface UiState {
   isOpen: boolean;
 }
 

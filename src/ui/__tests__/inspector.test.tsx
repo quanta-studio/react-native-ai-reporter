@@ -39,7 +39,7 @@ beforeEach(() => {
   store.addNetwork(post);
   store.addNetwork(get500);
   store.addLog({
-    id: 'log-1',
+    id: 'seeded-log',
     kind: 'exception',
     message: 'seeded failure',
     stack: 'at foo',
@@ -54,7 +54,9 @@ afterEach(() => {
   jest.useRealTimers();
 });
 
-const flush = () => act(() => void jest.advanceTimersByTime(20));
+const flush = () => act(() => {
+    jest.advanceTimersByTime(20);
+  });
 
 describe('T13 inspector UI', () => {
   it('walks through badge, list, filters, detail, share, logs and close', () => {

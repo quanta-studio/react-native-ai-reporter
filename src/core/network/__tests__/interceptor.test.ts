@@ -95,9 +95,9 @@ describe('T2 fetch on whatwg-fetch with blob responses', () => {
       result: string | null = null;
       onload: (() => void) | null = null;
       onerror: (() => void) | null = null;
-      readAsText(blob: Blob) {
-        blob.text().then(
-          t => {
+      readAsText(blob: unknown) {
+        (blob as {text: () => Promise<string>}).text().then(
+          (t: string) => {
             this.result = t;
             this.onload?.();
           },
@@ -121,7 +121,10 @@ describe('T2 fetch on whatwg-fetch with blob responses', () => {
     xhr.respond({
       status: 200,
       headers: 'content-type: application/json\r\n',
-      blob: new Blob(['{"b":2}'], {type: 'application/json'}),
+      blob: new (Blob as unknown as new (
+        parts: string[],
+        opts: {type: string},
+      ) => Blob)(['{"b":2}'], {type: 'application/json'}),
     });
     const res = await pending;
     expect(await res.json()).toEqual({b: 2});
