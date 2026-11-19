@@ -28,7 +28,7 @@ export function Inspector({tabs = DEFAULT_TABS}: {tabs?: InspectorTab[]}) {
       onRequestClose={uiState.close}>
       <SafeAreaView style={styles.root} testID="ai-reporter-inspector">
         <View style={styles.header}>
-          <Text style={styles.title}>AI Reporter</Text>
+          <Text style={styles.title}>Reporter</Text>
           {clearable ? (
             <Pressable
               testID="ai-reporter-clear"

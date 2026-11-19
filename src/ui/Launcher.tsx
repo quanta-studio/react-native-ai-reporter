@@ -100,10 +100,10 @@ export function Launcher({options = {}}: {options?: LauncherOptions}) {
         <Pressable
           testID="ai-reporter-launcher"
           accessibilityRole="button"
-          accessibilityLabel="Open AI Reporter inspector"
+          accessibilityLabel="Open Reporter inspector"
           onPress={uiState.open}
           style={styles.button}>
-          <Text style={styles.glyph}>AI</Text>
+          <Text style={styles.glyph}>QA</Text>
         </Pressable>
         {badge > 0 ? (
           <View

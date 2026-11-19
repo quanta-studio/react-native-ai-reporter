@@ -25,7 +25,7 @@ export default function App() {
     <AiReporterProvider getCurrentRoute={() => 'Examples'}>
       <SafeAreaView style={styles.root}>
         <ScrollView contentContainerStyle={styles.content}>
-          <Text style={styles.title}>AI Reporter example</Text>
+          <Text style={styles.title}>Reporter example</Text>
           <Button
             title="GET"
             onPress={() => run('GET', () => fetch(`${ECHO}/get?page=1`))}
