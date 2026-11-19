@@ -1,6 +1,6 @@
 {
   "name": "@quanta-studio/react-native-ai-reporter",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "In-app network and log inspector for React Native",
   "license": "MIT",
   "main": "./lib/module/index.js",
