@@ -6,7 +6,12 @@
   Write the test first and watch it fail. No test may touch the network.
 - **Worktrees** go under `.worktrees/` (gitignored).
 - **Commits** follow Conventional Commits, for example `feat(network): ...`.
-- **No `version` bump in a PR.** The version is set at release.
+- **Releases have their own PR.** A feature or fix PR never changes `version`.
+  A release is its own PR. It changes only `version` in `package.json` and the
+  two root entries of `package-lock.json`, and its commit is
+  `chore(release): <version>`. The hub publishes to npm from that PR's merge
+  commit and tags the GitHub release there, so the tag, `main` and the npm
+  tarball agree.
 - **Public repo, public npm package.** No client names, ticket text, backend
   hosts or screenshots in code, comments, tests, commits or PR text. Say "the
   consuming app".
